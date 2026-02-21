@@ -1,0 +1,253 @@
+{
+  "intake_completer": {
+    "key": "intake_completer",
+    "label": "Assessment Hero",
+    "description": "Completed the 60-question intake assessment",
+    "icon": "badges/assessment_hero.png",
+    "unlock_criteria": "assessment_completed == true",
+    "points": 10,
+    "rarity": "common",
+    "category": "engagement"
+  },
+  "documentation_starter": {
+    "key": "documentation_starter",
+    "label": "Documentation Starter",
+    "description": "Started the ID documentation process",
+    "icon": "badges/documentation.png",
+    "unlock_criteria": "task_status == 'in_progress' AND task_title LIKE '%ID Clinic%'",
+    "points": 25,
+    "rarity": "common",
+    "category": "stability"
+  },
+  "documentation_completer": {
+    "key": "documentation_completer",
+    "label": "ID Pro",
+    "description": "Completed ID documentation and received government-issued ID",
+    "icon": "badges/id_pro.png",
+    "unlock_criteria": "task_completed AND task_title LIKE '%ID Clinic%'",
+    "points": 50,
+    "rarity": "uncommon",
+    "category": "stability"
+  },
+  "courage_badge": {
+    "key": "courage_badge",
+    "label": "Courage",
+    "description": "Sought safety by reporting violence or abuse",
+    "icon": "badges/courage.png",
+    "unlock_criteria": "q10 LIKE '%Yes%'",
+    "points": 50,
+    "rarity": "uncommon",
+    "category": "wellbeing",
+    "note": "Awarded for taking steps toward safety"
+  },
+  "health_advocate": {
+    "key": "health_advocate",
+    "label": "Health Advocate",
+    "description": "Took action to address health concerns",
+    "icon": "badges/health.png",
+    "unlock_criteria": "task_completed AND task_title LIKE '%Medical%'",
+    "points": 35,
+    "rarity": "common",
+    "category": "health"
+  },
+  "housing_champion": {
+    "key": "housing_champion",
+    "label": "Housing Champion",
+    "description": "Completed major housing stability milestone",
+    "icon": "badges/housing_champion.png",
+    "unlock_criteria": "goal_completed AND goal_type == 'housing'",
+    "points": 75,
+    "rarity": "rare",
+    "category": "housing"
+  },
+  "recovery_warrior": {
+    "key": "recovery_warrior",
+    "label": "Recovery Warrior",
+    "description": "Engaged with addiction recovery services",
+    "icon": "badges/recovery.png",
+    "unlock_criteria": "q37 == 'Yes' OR q38 == 'Yes' OR q40 IN ('0–90 days', '91–180 days', 'More than 1 year')",
+    "points": 60,
+    "rarity": "rare",
+    "category": "recovery"
+  },
+  "90_days_sober": {
+    "key": "90_days_sober",
+    "label": "90 Days Strong",
+    "description": "Achieved 90+ days in recovery",
+    "icon": "badges/90_days.png",
+    "unlock_criteria": "q40 IN ('91–180 days', 'More than 1 year')",
+    "points": 100,
+    "rarity": "epic",
+    "category": "recovery"
+  },
+  "one_year_sober": {
+    "key": "one_year_sober",
+    "label": "One Year Milestone",
+    "description": "Achieved one year in recovery",
+    "icon": "badges/one_year.png",
+    "unlock_criteria": "q40 == 'More than 1 year'",
+    "points": 200,
+    "rarity": "legendary",
+    "category": "recovery"
+  },
+  "action_taker": {
+    "key": "action_taker",
+    "label": "Action Taker",
+    "description": "Completed first task",
+    "icon": "badges/action.png",
+    "unlock_criteria": "task_completed LIMIT 1",
+    "points": 20,
+    "rarity": "common",
+    "category": "engagement"
+  },
+  "task_master": {
+    "key": "task_master",
+    "label": "Task Master",
+    "description": "Completed 10 tasks toward goals",
+    "icon": "badges/task_master.png",
+    "unlock_criteria": "COUNT(task_completed) >= 10",
+    "points": 150,
+    "rarity": "rare",
+    "category": "engagement"
+  },
+  "goal_setter": {
+    "key": "goal_setter",
+    "label": "Goal Setter",
+    "description": "Set your first personal goal",
+    "icon": "badges/goal.png",
+    "unlock_criteria": "goal_created LIMIT 1",
+    "points": 15,
+    "rarity": "common",
+    "category": "planning"
+  },
+  "goal_achiever": {
+    "key": "goal_achiever",
+    "label": "Goal Achiever",
+    "description": "Completed a major personal goal",
+    "icon": "badges/goal_achiever.png",
+    "unlock_criteria": "goal_completed LIMIT 1",
+    "points": 100,
+    "rarity": "rare",
+    "category": "planning"
+  },
+  "mental_health_warrior": {
+    "key": "mental_health_warrior",
+    "label": "Mental Health Warrior",
+    "description": "Engaged with mental health support",
+    "icon": "badges/mental_health.png",
+    "unlock_criteria": "q26 == 'Yes' AND (q27 == 'Yes' OR q28 == 'Yes' OR q34 == 'Yes')",
+    "points": 55,
+    "rarity": "uncommon",
+    "category": "wellness"
+  },
+  "peer_power": {
+    "key": "peer_power",
+    "label": "Peer Power",
+    "description": "Connected with peer support",
+    "icon": "badges/peer_support.png",
+    "unlock_criteria": "q34 == 'Yes'",
+    "points": 40,
+    "rarity": "common",
+    "category": "community"
+  },
+  "accessibility_champion": {
+    "key": "accessibility_champion",
+    "label": "Accessibility Champion",
+    "description": "Advocated for accessibility needs",
+    "icon": "badges/accessibility.png",
+    "unlock_criteria": "q46 IN ('Yes – wheelchair required', 'Yes – walker or cane')",
+    "points": 35,
+    "rarity": "uncommon",
+    "category": "advocacy"
+  },
+  "community_champion": {
+    "key": "community_champion",
+    "label": "Community Champion",
+    "description": "Engaged in community support (volunteering, skill-sharing)",
+    "icon": "badges/community.png",
+    "unlock_criteria": "q58 == 'Yes' AND daily_activity LIKE '%volunteering%'",
+    "points": 65,
+    "rarity": "uncommon",
+    "category": "community"
+  },
+  "employment_pathway": {
+    "key": "employment_pathway",
+    "label": "Employment Pathway",
+    "description": "Started journey toward employment",
+    "icon": "badges/employment.png",
+    "unlock_criteria": "goal_created AND goal_type == 'employment'",
+    "points": 50,
+    "rarity": "uncommon",
+    "category": "career"
+  },
+  "early_bird": {
+    "key": "early_bird",
+    "label": "Early Bird",
+    "description": "Completed intake assessment within 7 days",
+    "icon": "badges/early_bird.png",
+    "unlock_criteria": "DATEDIFF(assessment_completion, registration_date) <= 7",
+    "points": 20,
+    "rarity": "common",
+    "category": "engagement"
+  },
+  "family_connection": {
+    "key": "family_connection",
+    "label": "Family Connection",
+    "description": "Identified family support network",
+    "icon": "badges/family.png",
+    "unlock_criteria": "q57 == 'Yes'",
+    "points": 30,
+    "rarity": "common",
+    "category": "support"
+  },
+  "stability_builder": {
+    "key": "stability_builder",
+    "label": "Stability Builder",
+    "description": "Established meaningful daily routine",
+    "icon": "badges/stability.png",
+    "unlock_criteria": "q58 == 'Yes' AND daily_routine_tracked",
+    "points": 75,
+    "rarity": "rare",
+    "category": "stability"
+  },
+  "legal_advocate": {
+    "key": "legal_advocate",
+    "label": "Legal Advocate",
+    "description": "Engaged with legal support process",
+    "icon": "badges/legal.png",
+    "unlock_criteria": "q53 == 'Yes' AND task_completed LIKE '%Legal%'",
+    "points": 55,
+    "rarity": "uncommon",
+    "category": "advocacy"
+  },
+  "six_month_stable": {
+    "key": "six_month_stable",
+    "label": "Six Month Stable",
+    "description": "Maintained housing for 6 months",
+    "icon": "badges/six_month.png",
+    "unlock_criteria": "housing_maintained_days >= 180",
+    "points": 150,
+    "rarity": "rare",
+    "category": "housing"
+  },
+  "one_year_stable": {
+    "key": "one_year_stable",
+    "label": "One Year Stable",
+    "description": "Maintained housing for one year",
+    "icon": "badges/one_year_stable.png",
+    "unlock_criteria": "housing_maintained_days >= 365",
+    "points": 300,
+    "rarity": "legendary",
+    "category": "housing"
+  },
+  "senior_star": {
+    "key": "senior_star",
+    "label": "Senior Star",
+    "description": "Engaged with senior-specific supports",
+    "icon": "badges/senior_star.png",
+    "unlock_criteria": "q2 == '60 or older (senior)' AND assessment_completed",
+    "points": 40,
+    "rarity": "uncommon",
+    "category": "senior"
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "id_clinic": {
+    "trigger_id": "id_clinic",
+    "condition": "q23 != 'Yes'",
+    "action": "create_task",
+    "task_title": "ID Clinic Appointment (Step 1: Documentation)",
+    "task_description": "Obtain birth certificate, apply for government-issued ID, take photo",
+    "priority": "high",
+    "due_date": "+14 days",
+    "topic": "documentation"
+  },
+  "housing_pathway": {
+    "trigger_id": "housing_pathway",
+    "condition": "(q16 == 'More than 1 year') AND (q17 >= 4)",
+    "action": "create_goal",
+    "goal_title": "Permanent Supportive Housing Pathway",
+    "goal_description": "Chronic homelessness detected. Establish 6-month pathway to stable housing with wrap-around support including mental health, substance use support, and life skills.",
+    "goal_type": "housing",
+    "milestone_count": 4,
+    "priority": "high"
+  },
+  "raam_referral": {
+    "trigger_id": "raam_referral",
+    "condition": "q37 == 'Yes'",
+    "action": "create_referral",
+    "provider_service": "raam_clinic",
+    "referral_type": "addiction_medicine",
+    "auto_send_if_consented": true,
+    "require_consent": true,
+    "ref description": "Rapid Access Addiction Medicine clinic referral"
+  },
+  "red_path_referral": {
+    "trigger_id": "red_path_referral",
+    "condition": "q38 == 'Yes'",
+    "action": "create_referral",
+    "provider_service": "red_path_recovery",
+    "referral_type": "recovery_program",
+    "auto_send_if_consented": true,
+    "require_consent": true,
+    "description": "Red Path Recovery Program referral for peer-based recovery support"
+  },
+  "youth_protection": {
+    "trigger_id": "youth_protection",
+    "condition": "q2 == 'Under 18'",
+    "action": "escalate_to_staff",
+    "escalation_type": "mandatory_reporting",
+    "alert_email": "youth_protection_team@outsinc.local",
+    "task_title": "Youth Protection: Age-Gated Client Intake",
+    "task_description": "Client under 18 has completed intake. Review for mandatory reporting requirements per Ontario Child Protection Act.",
+    "priority": "urgent"
+  },
+  "emergency_shelter": {
+    "trigger_id": "emergency_shelter",
+    "condition": "q10 LIKE '%Yes%immediate%'",
+    "action": "escalate_to_staff",
+    "escalation_type": "immediate_safety",
+    "alert_email": "emergency_response_team@outsinc.local",
+    "notify_provider": "cornerstone_emergency_shelter",
+    "auto_referral": true,
+    "task_title": "Emergency Safety Planning: Abuse Survivor",
+    "task_description": "Client fleeing violence/abuse. Secure immediate access to emergency shelter at Cornerstone or equivalent.",
+    "priority": "critical"
+  },
+  "naloxone_access": {
+    "trigger_id": "naloxone_access",
+    "condition": "(q36 == 'Yes' OR q37 == 'Yes' OR q38 == 'Yes') AND q39 != 'Yes'",
+    "action": "create_task",
+    "task_title": "Naloxone (Narcan) Distribution & OD Prevention Training",
+    "task_description": "Provide overdose prevention kit and training on naloxone use. Life-saving emergency measure.",
+    "priority": "high",
+    "due_date": "+3 days"
+  },
+  "mh_assessment": {
+    "trigger_id": "mh_assessment",
+    "condition": "q26 == 'I am currently seeking an assessment'",
+    "action": "create_goal",
+    "goal_title": "Mental Health Assessment & Support Plan",
+    "goal_description": "Client seeking mental health assessment. Coordinate with NHH Community Mental Health Team or Walk-In Clinic.",
+    "goal_type": "health",
+    "priority": "high"
+  },
+  "crisis_plan": {
+    "trigger_id": "crisis_plan",
+    "condition": "q32 == 'I would like help making one'",
+    "action": "create_task",
+    "task_title": "Develop Crisis Prevention & Self-Care Plan",
+    "task_description": "Work with client to create written plan for managing mental health crises. Include emergency contacts and coping strategies.",
+    "priority": "medium",
+    "due_date": "+7 days"
+  },
+  "peer_support": {
+    "trigger_id": "peer_support",
+    "condition": "q34 == 'Yes'",
+    "action": "create_referral",
+    "provider_service": "peer_support_program",
+    "referral_type": "peer_support",
+    "auto_send_if_consented": true,
+    "description": "Connect to peer support worker who has lived experience"
+  },
+  "senior_checkin": {
+    "trigger_id": "senior_checkin",
+    "condition": "q2 == '60 or older (senior)' AND q47 == 'Yes'",
+    "action": "create_goal",
+    "goal_title": "Senior Safety & Wellness Check-In Program",
+    "goal_description": "Enroll in regular check-in service for ongoing safety and wellness monitoring. Bi-weekly or monthly contact per preference.",
+    "goal_type": "health",
+    "priority": "medium"
+  },
+  "family_contact": {
+    "trigger_id": "family_contact",
+    "condition": "q2 == '60 or older (senior)' AND q48 NOT NULL",
+    "action": "create_task",
+    "task_title": "Establish Family/Support Network Contact",
+    "task_description": "Reach out to family member or Power of Attorney identified by client. Coordinate support planning.",
+    "priority": "medium",
+    "due_date": "+7 days"
+  },
+  "meal_assistance": {
+    "trigger_id": "meal_assistance",
+    "condition": "(q51 == 'Yes') OR (q8 != 'Today')",
+    "action": "create_referral",
+    "provider_service": "meals_on_wheels",
+    "referral_type": "nutrition_support",
+    "auto_send_if_consented": true,
+    "description": "Connect to meal planning, grocery shopping, or meal delivery service"
+  },
+  "legal_support": {
+    "trigger_id": "legal_support",
+    "condition": "q53 == 'Yes'",
+    "action": "create_task",
+    "task_title": "Legal Clinic Appointment for Court Proceedings",
+    "task_description": "Arrange free or low-cost legal clinic to prepare for upcoming court date. Document preparation and representation available.",
+    "priority": "high",
+    "due_date": "+7 days"
+  },
+  "tax_filing": {
+    "trigger_id": "tax_filing",
+    "condition": "q59 == 'Yes'",
+    "action": "create_task",
+    "task_title": "Community Tax Program - File 2024 Tax Return",
+    "task_description": "Complete tax filing to access maximum refund and government benefits (GST credit, working tax benefit, etc.). Free community tax program available.",
+    "priority": "medium",
+    "due_date": "+30 days"
+  },
+  "life_skills": {
+    "trigger_id": "life_skills",
+    "condition": "q54 == 'Yes'",
+    "action": "create_referral",
+    "provider_service": "life_skills_program",
+    "referral_type": "education",
+    "auto_send_if_consented": true,
+    "description": "Enroll in life skills programming: budgeting, cooking, computer basics, conflict resolution"
+  },
+  "gp_connection": {
+    "trigger_id": "gp_connection",
+    "condition": "q52 == 'No'",
+    "action": "create_task",
+    "task_title": "Find & Register with Family Doctor",
+    "task_description": "Connect with available GP in Northumberland County. Discuss health concerns and establish ongoing care.",
+    "priority": "medium",
+    "due_date": "+14 days"
+  },
+  "employment_path": {
+    "trigger_id": "employment_path",
+    "condition": "q58 == 'No'",
+    "action": "create_goal",
+    "goal_title": "Meaningful Daily Activity & Employment Path",
+    "goal_description": "Explore paid work, volunteering, hobbies, or structured routine. Build stability through meaningful engagement.",
+    "goal_type": "employment",
+    "priority": "medium"
+  },
+  "goal_from_client": {
+    "trigger_id": "goal_from_client",
+    "condition": "q60 IS NOT NULL AND q60 != ''",
+    "action": "create_goal",
+    "goal_title_dynamic": true,
+    "goal_title_source": "q60",
+    "goal_description": "Client's stated 30-day priority goal from intake assessment",
+    "goal_type": "client_identified",
+    "priority": "high",
+    "target_date": "+30 days"
+  },
+  "aer_detection": {
+    "trigger_id": "aer_detection",
+    "condition": "crisis_cluster_score >= 60",
+    "action": "escalate_to_staff",
+    "escalation_type": "acutely_elevated_risk",
+    "create_hub_discussion": true,
+    "alert_message_template": "ACUTELY ELEVATED RISK: Crisis cluster score {score}/100. Flags: {flags}. Immediate manager review and safety planning required.",
+    "priority": "critical",
+    "notify_supervisors": true
+  },
+  "intake_complete_badge": {
+    "trigger_id": "intake_complete_badge",
+    "condition": "assessment_completed == true",
+    "action": "award_badge",
+    "badge_key": "intake_completer",
+    "badge_label": "Assessment Hero",
+    "badge_description": "Completed the 60-question intake assessment",
+    "badge_icon": "badges/assessment_hero.png",
+    "points": 10
+  },
+  "by_name_list_sync": {
+    "trigger_id": "by_name_list_sync",
+    "condition": "q16 == 'More than 1 year' AND consent_to_coordinate == 'full'",
+    "action": "sync_external_system",
+    "external_system": "hifis_by_name_list",
+    "description": "Add to Northumberland County By-Name List for prioritized housing placement if chronic homelessness and consented",
+    "sync_fields": ["first_name", "last_name", "date_of_birth", "chronic_status", "prioritization_flags"]
+  }
+}

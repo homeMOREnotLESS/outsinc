@@ -1,0 +1,514 @@
+{
+  "q1": {
+    "section": 1,
+    "section_title": "Connection & Consent",
+    "question_text": "How did you connect with us today?",
+    "response_type": "select",
+    "options": ["Street outreach", "310 Division Street drop-in", "Online form", "Referral from another agency or person", "Other"],
+    "required": false,
+    "help_text": "Tell us how you found us - this helps us understand how to better reach people"
+  },
+  "q2": {
+    "section": 1,
+    "question_text": "What age range do you fall into?",
+    "response_type": "radio",
+    "options": ["Under 18", "18–24", "25–59", "60 or older (senior)"],
+    "required": false,
+    "help_text": "This helps us understand your needs better and ensure we have the right support for you",
+    "branching": ["age_gating_youth", "age_gating_senior"]
+  },
+  "q3": {
+    "section": 1,
+    "question_text": "What language do you feel most comfortable using right now?",
+    "response_type": "radio",
+    "options": ["English", "French", "American Sign Language (ASL)"],
+    "required": false,
+    "help_text": "We want to communicate with you in the way that feels most comfortable"
+  },
+  "q4": {
+    "section": 1,
+    "question_text": "Do you give us permission for a case worker to help coordinate services for you (housing, health care, employment, etc.) with other organizations?",
+    "response_type": "radio",
+    "options": ["Yes – full permission", "Partial permission (I want to choose what gets shared)", "No – no coordination please"],
+    "required": false,
+    "help_text": "Your privacy is important. You can choose what information we share with partners",
+    "branching": ["consent_choice"]
+  },
+  "q5": {
+    "section": 1,
+    "question_text": "Would you like us to use a nickname or different name when we talk about you (for privacy/safety reasons)?",
+    "response_type": "text",
+    "placeholder": "Enter a nickname or preferred name (optional)",
+    "required": false,
+    "help_text": "Your safety matters. You can choose what name we use"
+  },
+  "q6": {
+    "section": 2,
+    "section_title": "Immediate Crisis & Safety",
+    "question_text": "Where did you sleep last night?",
+    "response_type": "radio",
+    "options": ["Outdoors (street, park, encampment, car, etc.)", "Emergency shelter", "Cobourg Warming Room", "Sofa surfing / couch surfing", "With friend or family"],
+    "required": false,
+    "help_text": "This helps us understand what immediate support you might need",
+    "branching": ["homelessness_risk"]
+  },
+  "q7": {
+    "section": 2,
+    "question_text": "Are you in physical pain or do you need to see a doctor right away?",
+    "response_type": "radio",
+    "options": ["Yes – severe pain/emergency", "Yes – mild to moderate pain", "No"],
+    "required": false,
+    "help_text": "Your health is important. Tell us if you're hurting",
+    "branching": ["health_crisis"]
+  },
+  "q8": {
+    "section": 2,
+    "question_text": "When was your last full meal?",
+    "response_type": "radio",
+    "options": ["Today", "Yesterday", "2 or more days ago", "I'm not sure"],
+    "required": false,
+    "help_text": "Food security is a basic need. We can help connect you to resources",
+    "branching": ["food_security"]
+  },
+  "q9": {
+    "section": 2,
+    "question_text": "Do you feel safe where you are sleeping right now?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Sometimes/it depends"],
+    "required": false,
+    "help_text": "Your safety is our top priority",
+    "branching": ["safety_concern"]
+  },
+  "q10": {
+    "section": 2,
+    "question_text": "Are you currently trying to get away from violence or abuse?",
+    "response_type": "radio",
+    "options": ["Yes – I need immediate safe shelter (Cornerstone or similar)", "No – not right now", "This happened in the past"],
+    "required": false,
+    "help_text": "If you're in danger, we can help. You are not alone",
+    "branching": ["violence_escalation"]
+  },
+  "q11": {
+    "section": 2,
+    "question_text": "Do you have a safe place to keep your belongings?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Only what I can carry"],
+    "required": false,
+    "help_text": "Keeping your things safe is important for stability"
+  },
+  "q12": {
+    "section": 2,
+    "question_text": "Do you have reliable access to clean drinking water right now?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Sometimes/not consistent"],
+    "required": false,
+    "help_text": "Basic hygiene and hydration are essential"
+  },
+  "q13": {
+    "section": 2,
+    "question_text": "Do you have clothing that is appropriate for the current weather?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Needs repair/incomplete"],
+    "required": false,
+    "help_text": "We can help you stay warm and safe"
+  },
+  "q14": {
+    "section": 2,
+    "question_text": "Do you have a pet that needs to stay with you?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Your pet matters. We'll help find pet-friendly options"
+  },
+  "q15": {
+    "section": 2,
+    "question_text": "Are you part of a couple and need to stay together?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Keeping families and couples together is important"
+  },
+  "q16": {
+    "section": 3,
+    "section_title": "Housing History & Goals",
+    "question_text": "How long has it been since you had your own permanent housing?",
+    "response_type": "radio",
+    "options": ["Never had permanent housing", "Less than 6 months", "6–12 months", "More than 1 year"],
+    "required": false,
+    "help_text": "Understanding your housing history helps us plan better support",
+    "branching": ["chronic_homelessness"]
+  },
+  "q17": {
+    "section": 3,
+    "question_text": "How many separate times have you experienced homelessness in the last 3 years?",
+    "response_type": "radio",
+    "options": ["1 time", "2–3 times", "4 or more times", "I'm not sure"],
+    "required": false,
+    "help_text": "This pattern helps us understand your needs",
+    "branching": ["chronic_homelessness"]
+  },
+  "q18": {
+    "section": 3,
+    "question_text": "Have you ever been evicted from a place in Cobourg or Northumberland County?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I prefer not to answer"],
+    "required": false,
+    "help_text": "Eviction history can affect housing options. We can help address this"
+  },
+  "q19": {
+    "section": 3,
+    "question_text": "Are there any legal issues making it harder to get housing right now?",
+    "response_type": "checkbox",
+    "options": ["Bail conditions", "Owing rent/arrears", "Criminal record", "None of these", "Other"],
+    "required": false,
+    "help_text": "Legal barriers can be addressed. We have resources to help"
+  },
+  "q20": {
+    "section": 3,
+    "question_text": "What do you think is the biggest barrier to getting housing right now?",
+    "response_type": "select",
+    "options": ["Cost/rent too high", "No photo ID or documents", "Past evictions", "Credit history", "Health issues", "Other"],
+    "required": false,
+    "help_text": "Tell us what's holding you back. We can problem-solve together"
+  },
+  "q21": {
+    "section": 3,
+    "question_text": "Have you stayed at Transition House (310 Division) or 10 Chapel Street before?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Our team may know your history from our facilities"
+  },
+  "q22": {
+    "section": 3,
+    "question_text": "Are you currently on the Northumberland County housing waitlist?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I don't know"],
+    "required": false,
+    "help_text": "We can help you apply if you're not already on the list"
+  },
+  "q23": {
+    "section": 3,
+    "question_text": "Do you have a valid government-issued photo ID right now?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "It's expired"],
+    "required": false,
+    "help_text": "Photo ID is needed for many  services. We can help you get one",
+    "branching": ["id_clinic_task"]
+  },
+  "q24": {
+    "section": 3,
+    "question_text": "Do you have a Social Insurance Number (SIN)?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I'm not sure"],
+    "required": false,
+    "help_text": "A SIN is important for employment and government benefits"
+  },
+  "q25": {
+    "section": 3,
+    "question_text": "If housing becomes available, what kind would you prefer?",
+    "response_type": "radio",
+    "options": ["Private apartment (scattered site)", "Group/congregate setting", "No strong preference"],
+    "required": false,
+    "help_text": "We want to find housing that works for you"
+  },
+  "q26": {
+    "section": 4,
+    "section_title": "Mental Health & Wellbeing",
+    "question_text": "Have you ever been told by a doctor that you have a mental health condition (depression, anxiety, PTSD, bipolar, schizophrenia, etc.)?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I am currently seeking an assessment"],
+    "required": false,
+    "help_text": "Mental health is health. We support people with all conditions"
+  },
+  "q27": {
+    "section": 4,
+    "question_text": "Are you already connected with the NHH Community Mental Health Team or another mental health service?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "If you already have support, that's great. We'll coordinate with them"
+  },
+  "q28": {
+    "section": 4,
+    "question_text": "Would you like us to help arrange a referral to the Walk-In Counselling Clinic on Elgin Street?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Counselling can help with many challenges"
+  },
+  "q29": {
+    "section": 4,
+    "question_text": "Do you ever experience times when you 'space out,' have memory gaps, or feel disconnected after difficult experiences?",
+    "response_type": "radio",
+    "options": ["Frequently", "Sometimes", "Never"],
+    "required": false,
+    "help_text": "These are normal responses to trauma. We can help",
+    "branching": ["trauma_response"]
+  },
+  "q30": {
+    "section": 4,
+    "question_text": "Have you ever had a serious head injury (concussion, fall, accident, etc.)?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Head injuries can affect health and need medical attention"
+  },
+  "q31": {
+    "section": 4,
+    "question_text": "Are you currently taking any prescribed medication for mental health?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I had some but lost them/ran out"],
+    "required": false,
+    "help_text": "If you need medication refills, we can help you get them"
+  },
+  "q32": {
+    "section": 4,
+    "question_text": "Do you have a written crisis prevention or self-care plan?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I would like help making one"],
+    "required": false,
+    "help_text": "A crisis plan helps keep you safe during tough times"
+  },
+  "q33": {
+    "section": 4,
+    "question_text": "In high-stress situations, do you sometimes feel a loss of control over your thoughts, feelings, or actions?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Sometimes"],
+    "required": false,
+    "help_text": "Many people experience this. Coping skills can help"
+  },
+  "q34": {
+    "section": 4,
+    "question_text": "Would you like to speak with a Peer Support Worker?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Peer workers have lived experience and can offer unique support"
+  },
+  "q35": {
+    "section": 4,
+    "question_text": "Do you find yourself struggling with hoarding items, collecting things, or finding it hard to let things go?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "This is common and addressable with the right support"
+  },
+  "q36": {
+    "section": 5,
+    "section_title": "Substance Use & Recovery",
+    "question_text": "Do you feel that your use of substances is making it harder to keep housing or stay stable?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "We're here to support recovery without judgment",
+    "branching": ["substance_impact_skip"]
+  },
+  "q37": {
+    "section": 5,
+    "question_text": "Would you like a referral to the RAAM (Rapid Access Addiction Medicine) Clinic?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "RAAM provides fast access to addiction support",
+    "branching": ["raam_referral"]
+  },
+  "q38": {
+    "section": 5,
+    "question_text": "Are you interested in the Red Path Recovery Program or similar local recovery supports?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Local programs offer peer-based recovery support"
+  },
+  "q39": {
+    "section": 5,
+    "question_text": "Do you currently have access to Naloxone (Narcan) or other overdose prevention tools?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Naloxone can save lives. We can help you get it"
+  },
+  "q40": {
+    "section": 5,
+    "question_text": "How many days or months have you been in recovery (if applicable)?",
+    "response_type": "select",
+    "options": ["0–90 days", "91–180 days", "More than 1 year", "Not currently in recovery/NA"],
+    "required": false,
+    "help_text": "Recovery is a journey. Every milestone matters"
+  },
+  "q41": {
+    "section": 5,
+    "question_text": "Is most of your current social circle made up of people who use substances?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Mixed"],
+    "required": false,
+    "help_text": "Social support is important for stability"
+  },
+  "q42": {
+    "section": 5,
+    "question_text": "Do you sometimes use substances to help manage emotional pain or difficult memories?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "This is common. Healthy coping strategies can help",
+    "branching": ["trauma_and_substance"]
+  },
+  "q43": {
+    "section": 5,
+    "question_text": "Which kind of support feels right for you right now?",
+    "response_type": "radio",
+    "options": ["Harm reduction", "Abstinence-only programs", "Both approaches are okay"],
+    "required": false,
+    "help_text": "Recovery looks different for everyone. You choose your path"
+  },
+  "q44": {
+    "section": 6,
+    "section_title": "Elderly & Retired Resident Specifics",
+    "question_text": "Are you currently receiving Old Age Security (OAS), Canada Pension Plan (CPP), or other pension income?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Application is pending"],
+    "required": false,
+    "help_text": "Pension income can help stabilize your housing",
+    "parent_question": "q2_senior"
+  },
+  "q45": {
+    "section": 6,
+    "question_text": "Did you lose your housing because a retirement residence or long-term care home closed or changed its rules?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "We can help address housing loss situations",
+    "parent_question": "q2_senior"
+  },
+  "q46": {
+    "section": 6,
+    "question_text": "Do you have any mobility challenges that would require an accessible unit?",
+    "response_type": "radio",
+    "options": ["Yes – wheelchair required", "Yes – walker or cane", "No"],
+    "required": false,
+    "help_text": "Accessible housing ensures your safety and independence",
+    "parent_question": "q2_senior"
+  },
+  "q47": {
+    "section": 6,
+    "question_text": "Would you like a regular 'Senior Check-in' service for safety and wellness?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Regular check-ins help us know you're okay",
+    "parent_question": "q2_senior"
+  },
+  "q48": {
+    "section": 6,
+    "question_text": "Is there a family member, friend, or Power of Attorney we should contact to help support you?",
+    "response_type": "text",
+    "placeholder": "Name and contact information (optional)",
+    "required": false,
+    "help_text": "Family connections can provide important support",
+    "parent_question": "q2_senior"
+  },
+  "q49": {
+    "section": 6,
+    "question_text": "Do you live with significant ongoing medical conditions (diabetes, heart disease, COPD, etc.)?",
+    "response_type": "checkbox",
+    "options": ["Diabetes", "Heart disease", "COPD", "Arthritis", "Other"],
+    "required": false,
+    "help_text": "Medical conditions affect housing needs. We can accommodate",
+    "parent_question": "q2_senior"
+  },
+  "q50": {
+    "section": 6,
+    "question_text": "Are you 60 years of age or older?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "This confirms eligibility for senior-specific services",
+    "parent_question": "q2_senior"
+  },
+  "q51": {
+    "section": 6,
+    "question_text": "Do you need help with meal planning, grocery shopping, or preparing food?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Nutrition support helps maintain health",
+    "parent_question": "q2_senior"
+  },
+  "q52": {
+    "section": 7,
+    "section_title": "Social, Legal & Life Skills",
+    "question_text": "Do you have a regular family doctor (GP) in Northumberland County?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "A regular doctor ensures continuity of care"
+  },
+  "q53": {
+    "section": 7,
+    "question_text": "Do you have any upcoming court dates or legal proceedings?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "I'm not sure"],
+    "required": false,
+    "help_text": "Legal support can help navigate the court system",
+    "branching": ["legal_support_task"]
+  },
+  "q54": {
+    "section": 7,
+    "question_text": "Would you be interested in life skills programming (budgeting, cooking, computer basics, etc.)?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Life skills can help you build independence"
+  },
+  "q55": {
+    "section": 7,
+    "question_text": "Do you feel confident in your ability to advocate for yourself or navigate systems ('street smart')?",
+    "response_type": "radio",
+    "options": ["Yes", "No", "Sometimes"],
+    "required": false,
+    "help_text": "We can teach you how to navigate systems effectively"
+  },
+  "q56": {
+    "section": 7,
+    "question_text": "Is anyone currently forcing, pressuring, or tricking you into doing things you do not want to do?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "If you're being exploited or trafficked, we can help",
+    "branching": ["trafficking_escalation"]
+  },
+  "q57": {
+    "section": 7,
+    "question_text": "If we could help arrange it, do you have a friend or family member you could stay with temporarily?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Family support is a valuable resource"
+  },
+  "q58": {
+    "section": 7,
+    "question_text": "Do you currently have any meaningful daily activity (paid work, volunteering, hobbies, routine)?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Daily structure supports mental health and stability"
+  },
+  "q59": {
+    "section": 7,
+    "question_text": "Would you like help filing your income tax returns to access credits or benefits?",
+    "response_type": "radio",
+    "options": ["Yes", "No"],
+    "required": false,
+    "help_text": "Tax credits can put money back in your pocket",
+    "branching": ["tax_help_task"]
+  },
+  "q60": {
+    "section": 7,
+    "question_text": "What is the #1 goal or change you would most like to see happen in the next 30 days?",
+    "response_type": "textarea",
+    "placeholder": "What matters most to you right now?",
+    "required": false,
+    "help_text": "Tell us your dream. We'll work toward it together"
+  }
+}

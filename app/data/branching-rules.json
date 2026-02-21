@@ -1,0 +1,241 @@
+{
+  "age_gating_youth": {
+    "condition": "q2 == 'Under 18'",
+    "actions": [
+      {
+        "type": "staff_alert",
+        "alert_type": "youth_protection",
+        "task_title": "Youth Protection: Age-Gated Client Intake",
+        "priority": "urgent",
+        "description": "Client under 18 has started intake. Review for mandatory reporting requirements."
+      }
+    ]
+  },
+  "age_gating_senior": {
+    "condition": "q2 == '60 or older (senior)'",
+    "actions": [
+      {
+        "type": "show_section",
+        "section": 6,
+        "description": "Unlock Section 6: Elderly & Retired Resident Specifics"
+      }
+    ]
+  },
+  "homelessness_risk": {
+    "condition": "q6 == 'Outdoors (street, park, encampment, car, etc.)'",
+    "risk_score_add": 25,
+    "flags": ["unsheltered"],
+    "tag": "Unsheltered"
+  },
+  "health_crisis": {
+    "condition": "q7 == 'Yes – severe pain/emergency'",
+    "risk_score_add": 25,
+    "flags": ["severe_medical_need"],
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "Emergency Medical Assessment",
+        "priority": "urgent",
+        "due_date": "today"
+      }
+    ]
+  },
+  "food_security": {
+    "condition": "q8 == '2 or more days ago'",
+    "risk_score_add": 15,
+    "flags": ["food_insecurity"],
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "Connect to Food Security Resources",
+        "priority": "high",
+        "due_date": "+1 day"
+      }
+    ]
+  },
+  "safety_concern": {
+    "condition": "q9 == 'No' OR q9 == 'Sometimes/it depends'",
+    "risk_score_add": 20,
+    "flags": ["safety_concern"]
+  },
+  "violence_escalation": {
+    "condition": "q10 LIKE '%Yes%'",
+    "risk_score_add": 40,
+    "risk_critical": true,
+    "flags": ["fleeing_violence", "immediate_safety_risk"],
+    "tag": "Violence Survivor",
+    "actions": [
+      {
+        "type": "staff_alert",
+        "alert_type": "immediate_violence",
+        "message": "Client fleeing violence. Immediate safety planning required.",
+        "priority": "critical",
+        "notify_provider": "cornerstone_emergency_shelter"
+      },
+      {
+        "type": "auto_referral",
+        "provider": "cornerstone_emergency_shelter",
+        "referral_type": "emergency_shelter",
+        "auto_send": true,
+        "description": "Immediate safe shelter for abuse survivor"
+      }
+    ]
+  },
+  "id_clinic_task": {
+    "condition": "q23 == 'No' OR q23 == 'It\\'s expired'",
+    "risk_score_add": 10,
+    "flags": ["no_photo_id"],
+    "tag": "No ID",
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "ID Clinic Appointment (Step 1: Documentation)",
+        "priority": "high",
+        "due_date": "+14 days",
+        "description": "Birth certificate, ID application, and photo"
+      }
+    ]
+  },
+  "chronic_homelessness": {
+    "condition": "(q16 == 'More than 1 year') AND (q17 >= 4 OR q17 == '4 or more times')",
+    "risk_score_add": 15,
+    "flags": ["chronic_homelessness"],
+    "tag": "Chronic Homelessness",
+    "actions": [
+      {
+        "type": "auto_goal",
+        "goal_title": "Permanent Supportive Housing Pathway",
+        "goal_type": "housing",
+        "priority": "high",
+        "description": "Based on chronic homelessness pattern, establish 6-month pathway to stable housing with wrap-around support"
+      }
+    ]
+  },
+  "trauma_response": {
+    "condition": "q29 == 'Frequently' OR q29 == 'Sometimes'",
+    "risk_score_add": 10,
+    "flags": ["trauma_symptoms"],
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "Trauma-Informed Counseling Referral",
+        "priority": "medium",
+        "description": "Connect to trauma-focused mental health services"
+      }
+    ]
+  },
+  "substance_impact_skip": {
+    "condition": "q36 == 'No'",
+    "skip_to_question": "q44",
+    "description": "Skip remainder of substance use section if substance use is not impacting housing"
+  },
+  "raam_referral": {
+    "condition": "q37 == 'Yes'",
+    "risk_score_add": 0,
+    "actions": [
+      {
+        "type": "auto_referral",
+        "provider": "raam_clinic",
+        "referral_type": "addiction_medicine",
+        "auto_send": true,
+        "description": "Rapid Access Addiction Medicine clinic referral"
+      }
+    ]
+  },
+  "trauma_and_substance": {
+    "condition": "q42 == 'Yes' AND q29 IN ('Frequently', 'Sometimes')",
+    "risk_score_add": 15,
+    "flags": ["complex_trauma", "substance_coping"],
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "Integrated Dual-Diagnosis Assessment",
+        "priority": "high",
+        "description": "Assess for co-occurring mental health and substance use disorders"
+      }
+    ]
+  },
+  "legal_support_task": {
+    "condition": "q53 == 'Yes'",
+    "risk_score_add": 5,
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "Legal Support Appointment",
+        "priority": "high",
+        "due_date": "+7 days",
+        "description": "Legal clinic or assistance for upcoming court date"
+      }
+    ]
+  },
+  "trafficking_escalation": {
+    "condition": "q56 == 'Yes'",
+    "risk_score_add": 50,
+    "risk_critical": true,
+    "flags": ["human_trafficking", "exploitation_risk"],
+    "actions": [
+      {
+        "type": "staff_alert",
+        "alert_type": "trafficking_alert",
+        "message": "Client reports being forced/pressured into activities. Possible human trafficking.",
+        "priority": "critical",
+        "notify_police": true
+      },
+      {
+        "type": "auto_referral",
+        "provider": "trafficking_support_service",
+        "referral_type": "trafficking_support",
+        "auto_send": true
+      }
+    ]
+  },
+  "tax_help_task": {
+    "condition": "q59 == 'Yes'",
+    "actions": [
+      {
+        "type": "auto_task",
+        "task_title": "Community Tax Program (File 2024 Taxes)",
+        "priority": "medium",
+        "due_date": "+30 days",
+        "description": "Access maximum tax credits and government benefits"
+      }
+    ]
+  },
+  "crisis_cluster": {
+    "description": "Acutely Elevated Risk (AER) Detection - Multiple Crisis Factors",
+    "scoring": {
+      "unsheltered": 25,
+      "severe_medical_need": 25,
+      "food_insecurity": 15,
+      "safety_concern": 20,
+      "fleeing_violence": 40,
+      "immediate_safety_risk": 1,
+      "no_photo_id": 10,
+      "chronic_homelessness": 15,
+      "trauma_symptoms": 10,
+      "complex_trauma": 15,
+      "substance_coping": 10,
+      "human_trafficking": 50
+    },
+    "aer_threshold": 60,
+    "aer_actions": [
+      {
+        "type": "escalation_alert",
+        "priority": "critical",
+        "message_template": "Acutely Elevated Risk detected. Crisis score: {score}. Flags: {flags}. Immediate manager review required.",
+        "notify_supervisor": true,
+        "create_hub_discussion": true
+      }
+    ]
+  },
+  "consent_choice": {
+    "condition": "q4 == 'Partial permission (I want to choose what gets shared)'",
+    "actions": [
+      {
+        "type": "show_field",
+        "field_type": "consent_field_selector",
+        "description": "Client selects specific fields they allow to be shared with partners"
+      }
+    ]
+  }
+}

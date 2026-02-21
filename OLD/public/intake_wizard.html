@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Intake Wizard — OUTSINC</title></head>
+<body>
+<h1>Intake Wizard (demo)</h1>
+<p>Minimal demo: submit a few answers to the assessment endpoint.</p>
+<form id="intake" method="post" action="/src/process_assessment.php">
+  <input type="hidden" name="client_id" value="1">
+  <label>Q1: How did you connect with us today?<br>
+    <select name="q1">
+      <option>Street outreach</option>
+      <option>310 Division Street drop-in</option>
+      <option>Online form / website</option>
+      <option>Referral</option>
+    </select>
+  </label><br>
+  <label>Q2: Age range<br>
+    <select name="q2">
+      <option>Under 18</option>
+      <option>18-24</option>
+      <option>25-59</option>
+      <option>60 or older (senior)</option>
+    </select>
+  </label><br>
+  <label>Q60: What is your #1 goal in next 30 days?<br>
+    <input type="text" name="q60" style="width:50%">
+  </label><br>
+  <button type="submit">Submit (demo)</button>
+</form>
+</body>
+</html>
